@@ -24,6 +24,11 @@ var articleSchema = mongoose.Schema({
 
 var Article = module.exports = mongoose.model('Article', articleSchema);
 
+// Create new Article
+module.exports.createArticle = function (newArticle, callback) {
+  newArticle.save(callback);
+};
+
 // Get All Articles
 module.exports.getArticles = function (callback) {
   Article.find(callback);
@@ -41,3 +46,36 @@ module.exports.getArticlesByCategory = function (category, callback) {
   };
   Article.find(query, callback);
 };
+
+// Update an Article
+module.exports.updateArticle = function (id, data, callback) {
+  var title = data.title,
+    body = data.body,
+    category = data.category;
+
+  var query = {
+    _id: id
+  };
+
+  Article.findById(id, function (err, article) {
+    if (!article) {
+      return next(new Error('Could not load article'));
+
+    } else {
+      // Update
+      article.title = title;
+      article.body = body;
+      article.category = category;
+
+      article.save(callback);
+    }
+  });
+};
+
+// Delete an Article
+module.exports.remveArticle = function (id, callback) {
+  Article.find({
+    _id: id
+  }).remove(callback);
+
+}
