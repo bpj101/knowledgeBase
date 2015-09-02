@@ -1,0 +1,23 @@
+{
+  "name": "knowledgebase",
+  "version": "0.0.1",
+  "homepage": "https://github.com/bpj101/knowledgeBase",
+  "authors": [
+    "Paul Julian <bpj101@dameagnesproductions.com>"
+  ],
+  "description": "Database of Articles by Categories",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.5",
+    "angular-ui-router": "ui-router#~0.2.15",
+    "bootstrap": "~3.3.5"
+  }
+}
