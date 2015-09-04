@@ -1,1 +1,14 @@
-<h1>Categories Page</h1>
+<div class="container">
+  <div class="row">
+    <h2>Categories</h2>
+    <div class="panel panel-default" ng-repeat="category in categories">
+      <div class="panel-body">
+        <div>
+          <a href="#/category/articles/{{category.name}}"><h3>{{category.name}}</h3></a>
+          <p>{{category.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
