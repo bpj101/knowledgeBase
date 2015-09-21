@@ -1,14 +1,18 @@
 <div class="container">
   <div class="row">
     <h2>Articles</h2>
-    <div class="panel panel-default" ng-repeat="article in articles">
+    <div class="panel panel-default"  ng-repeat="article in as.articles | orderBy: '-date' ">
       <div class="panel-body">
         <div>
-          <a href="#/category/articles"><h3>{{article.title}}</h3></a>
-          <p>{{article.body}}</p>
+          <a href="#/article/{{article._id}} "><h3>{{article.title}}</h3></a>
+          <p>{{article.body | limitTo: 200}}</p>
+          <a href="#/category/articles/{{article.category}}"><p>{{article.category}}</p></a>
+          <small>Posted: {{article.date | date : 'medium'}}</small>
         </div>
       </div>
     </div>
+    <div ng-if="articles.articles == false">
+      <h3>No Articles to display</h3>
+    </div>
   </div>
-</div>
 </div>

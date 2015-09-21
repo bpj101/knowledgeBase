@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+  <a ui-sref="categories" class="btn btn-primary">Go Back</a>
+    <h2>{{as.article.title}}</h2>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div>
+          <p>{{as.article.body}}</p>
+          <a href="#/category/articles/{{as.article.category}}"><p>{{as.article.category}}</p></a>
+          <small>Posted: {{as.article.date | date : 'medium'}}</small>
+        </div>
+      </div>
+    </div>
+    <a href="#/article/edit/{{as.article._id}}" class="btn btn-default">Edit</a>
+    <a ui-sref="categories" class="btn btn-danger">Delete</a>
+  </div>
+</div>

@@ -1,5 +1,19 @@
-<h1>Single Category</h1>
-
-<!-- List of Articles of a single view -->
-<h2>List all Articles of this Category</h2>
-<ui.view></ui.view>
+<!-- List of Articles of a single Category -->
+<div class="container">
+  <div class="row">
+    <h2>Category: {{as.category}}</h2>
+    <div class="panel panel-default"  ng-repeat="article in as.cat_articles | orderBy: '-date' ">
+      <div class="panel-body">
+        <div>
+          <a href="#/article/{{article._id}} "><h3>{{article.title}}</h3></a>
+          <p>{{article.body | limitTo: 200}}</p>
+          <small>Posted: {{article.date | date : 'medium'}}</small>
+        </div>
+      </div>
+    </div>
+    <div ng-if="as.articles == false">
+      <h3>No Articles to display</h3>
+    </div>
+    <a ui-sref="categories" class="btn btn-primary back-btn">Go Back</a>
+  </div>
+</div>

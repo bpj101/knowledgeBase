@@ -1,6 +1,7 @@
 'use strict';
 // Include gulp
-var gulp = require('gulp');
+var gulp = require('gulp'),
+    runSequence = require('run-sequence');
 
 // Include Our Plugins
 var jshint = require('gulp-jshint');
